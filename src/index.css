@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+}
+
+:root {
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000000;
+  color: #f3f4f6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.hero-content {
+  opacity: 0;
+  animation: fadeSlideUp 0.5s ease-out 0.05s forwards;
+}
+
+.hero-content-delay-1 {
+  opacity: 0;
+  animation: fadeSlideUp 0.5s ease-out 0.15s forwards;
+}
+
+.hero-content-delay-2 {
+  opacity: 0;
+  animation: fadeSlideUp 0.5s ease-out 0.25s forwards;
+}
+
+.hero-content-delay-3 {
+  opacity: 0;
+  animation: fadeSlideUp 0.5s ease-out 0.35s forwards;
+}
+
+/* Scroll animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-delay-1 { transition-delay: 0.1s; }
+.scroll-reveal-delay-2 { transition-delay: 0.2s; }
+.scroll-reveal-delay-3 { transition-delay: 0.3s; }
+
+/* Card hover glow */
+.card-hover {
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+  border-color: rgba(245, 158, 11, 0.25) !important;
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.08);
+}
+
+/* Navbar scroll effect */
+.navbar {
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* CTA button transitions */
+.btn-primary {
+  transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+}
+
+.btn-secondary {
+  transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(245, 158, 11, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Stat count animation */
+.stat-value {
+  opacity: 0;
+  animation: countUp 0.5s ease-out forwards;
+}
+
+.stat-visible .stat-value {
+  opacity: 1;
+}
