@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { INSTAGRAM_DM_URL, INSTAGRAM_HANDLE, PRIMARY_CTA_LABEL, PRIMARY_CTA_URL } from "@/lib/contact";
+import { ContactPage, PrivacyPage, TermsPage } from "@/pages/legal";
 
 const TonifyLogo = () => (
   <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,16 +131,16 @@ function Navbar() {
       </a>
       <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
         <a
-          href="https://app.tonifyai.com/login"
+          href={INSTAGRAM_DM_URL}
           className="hidden md:block"
           style={{ color: "#9ca3af", fontSize: 14, textDecoration: "none", transition: "color 0.15s" }}
           onMouseEnter={e => (e.currentTarget.style.color = "#f3f4f6")}
           onMouseLeave={e => (e.currentTarget.style.color = "#9ca3af")}
         >
-          Sign In
+          Instagram
         </a>
         <a
-          href="https://app.tonifyai.com/auth/signup"
+          href={PRIMARY_CTA_URL}
           style={{
             background: "#f59e0b",
             color: "#000",
@@ -152,7 +154,7 @@ function Navbar() {
           onMouseEnter={e => (e.currentTarget.style.background = "#d97706")}
           onMouseLeave={e => (e.currentTarget.style.background = "#f59e0b")}
         >
-          Request Access
+          {PRIMARY_CTA_LABEL}
         </a>
       </div>
     </nav>
@@ -218,7 +220,7 @@ function Hero() {
 
         <div className="hero-content-delay-3" style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center", marginBottom: 16 }}>
           <a
-            href="https://app.tonifyai.com/auth/signup"
+            href={PRIMARY_CTA_URL}
             className="btn-primary"
             style={{
               background: "#f59e0b",
@@ -231,7 +233,7 @@ function Hero() {
               display: "inline-block",
             }}
           >
-            Request Early Access →
+            {PRIMARY_CTA_LABEL} →
           </a>
           <a
             href="#how-it-works"
@@ -251,7 +253,7 @@ function Hero() {
         </div>
 
         <div className="hero-content-delay-3" style={{ color: "#4b5563", fontSize: 13 }}>
-          Invite-only · No credit card required · Setup in 24 hours
+          Free sample · No commitment · Urdu &amp; English recordings
         </div>
       </div>
     </section>
@@ -274,7 +276,7 @@ function SocialProofBar() {
   const stats = [
     { value: "< 2 min", label: "Content turnaround" },
     { value: "3 formats", label: "Per upload" },
-    { value: "90%+", label: "Margin per job" },
+    { value: "Urdu + English", label: "Recordings supported" },
   ];
 
   return (
@@ -372,9 +374,9 @@ function OutputPreview() {
     {
       icon: <LinkedInIcon />,
       platform: "LinkedIn Post",
-      content: `62% of businesses are leaving revenue on the table — not because of a product problem, but a content problem.
+      content: `Most agencies don't have a content problem. They have a time problem.
 
-We processed 847 hours of client recordings last quarter. Here's what separates agencies that grow from those that plateau...`,
+Your client said something brilliant on last week's call. It's still sitting in a recording nobody has had time to turn into a post...`,
     },
     {
       icon: <InstagramIcon />,
@@ -433,7 +435,7 @@ No time to document them...`,
                 </p>
               </div>
               <div style={{ padding: "12px 20px", borderTop: "1px solid rgba(245,158,11,0.08)" }}>
-                <span style={{ color: "#374151", fontSize: 12 }}>Sample output</span>
+                <span style={{ color: "#4b5563", fontSize: 12 }}>Illustrative example · real client sample coming soon</span>
               </div>
             </div>
           ))}
@@ -448,7 +450,7 @@ function ForAgencies() {
     "Multiple client profiles in one dashboard",
     "Brand voice preserved across every output",
     "Content ready in minutes, not hours",
-    "Webhook delivery to your tools (ClickUp, Slack)",
+    "Delivery to ClickUp & Slack (coming soon)",
   ];
 
   return (
@@ -513,108 +515,56 @@ function ForAgencies() {
 }
 
 function Pricing() {
-  const setupFeatures = [
-    "Manual tone engineering",
-    "Up to 5 brand profiles",
-    "Writing style calibration",
-    "2 revision rounds",
-  ];
-  const monthlyFeatures = [
-    "300 minutes/month included",
-    "LinkedIn, Instagram, Newsletter",
-    "Unlimited client profiles",
-    "Webhook integrations",
+  const features = [
+    "Brand voice setup for each client",
+    "LinkedIn posts, Instagram scripts and newsletters",
+    "Multiple client profiles in one dashboard",
+    "Urdu, English and mixed Urdu-English recordings",
+    "Local onboarding and support",
+    "Billing in PKR for Pakistani agencies",
+    "ClickUp & Slack delivery (coming soon)",
   ];
 
   return (
-    <section style={{ background: "#000", padding: "96px 24px", textAlign: "center" }}>
+    <section id="pricing" style={{ background: "#000", padding: "96px 24px", textAlign: "center" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <p className="scroll-reveal" style={{ color: "#f59e0b", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 16 }}>
           Pricing
         </p>
         <h2 className="scroll-reveal" style={{ color: "#fff", fontSize: "clamp(28px,4vw,40px)", fontWeight: 300, marginBottom: 16 }}>
-          Simple, transparent pricing
+          Early access pricing — DM us
         </h2>
-        <p className="scroll-reveal" style={{ color: "#9ca3af", fontSize: 16, marginBottom: 64, maxWidth: 480, margin: "0 auto 64px" }}>
-          Everything you need to run content operations for your entire client roster.
+        <p className="scroll-reveal" style={{ color: "#9ca3af", fontSize: 16, maxWidth: 520, margin: "0 auto 48px", lineHeight: 1.6 }}>
+          We're onboarding a small group of founding agencies and setting pricing with each one.
+          Start with a free sample, then we'll quote for your client roster.
         </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 720, margin: "0 auto 48px" }}>
-          <div
-            className="card-hover scroll-reveal"
-            style={{
-              background: "#0a0a0a",
-              border: "1px solid rgba(245,158,11,0.10)",
-              borderRadius: 16,
-              padding: 32,
-              textAlign: "left",
-            }}
-          >
-            <p style={{ color: "#6b7280", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>One-Time Setup</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 8 }}>
-              <span style={{ color: "#fff", fontSize: 48, fontWeight: 300, lineHeight: 1 }}>$1,500</span>
-              <span style={{ color: "#6b7280", fontSize: 16 }}>— $3,000</span>
-            </div>
-            <p style={{ color: "#9ca3af", fontSize: 14, lineHeight: 1.6, marginBottom: 28 }}>
-              Tone engineering, profile onboarding, and custom brand voice configuration for up to 5 client profiles.
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {setupFeatures.map((f, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <CheckIcon />
-                  <span style={{ color: "#d1d5db", fontSize: 14 }}>{f}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            className="card-hover scroll-reveal scroll-reveal-delay-2"
-            style={{
-              background: "#0a0a0a",
-              border: "2px solid rgba(245,158,11,0.35)",
-              borderRadius: 16,
-              padding: 32,
-              textAlign: "left",
-              position: "relative",
-            }}
-          >
-            <span style={{
-              position: "absolute",
-              top: 20,
-              right: 20,
-              background: "#f59e0b",
-              color: "#000",
-              fontSize: 11,
-              fontWeight: 600,
-              padding: "4px 12px",
-              borderRadius: 9999,
-            }}>
-              Most Popular
-            </span>
-            <p style={{ color: "#6b7280", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Monthly Retainer</p>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 8 }}>
-              <span style={{ color: "#fff", fontSize: 48, fontWeight: 300, lineHeight: 1 }}>$500</span>
-              <span style={{ color: "#6b7280", fontSize: 16 }}>/ month</span>
-            </div>
-            <p style={{ color: "#9ca3af", fontSize: 14, lineHeight: 1.6, marginBottom: 28 }}>
-              300 processing minutes included. Overage billed per minute. Cancel anytime.
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {monthlyFeatures.map((f, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <CheckIcon />
-                  <span style={{ color: "#d1d5db", fontSize: 14 }}>{f}</span>
-                </div>
-              ))}
-            </div>
+        <div
+          className="card-hover scroll-reveal"
+          style={{
+            background: "#0a0a0a",
+            border: "2px solid rgba(245,158,11,0.35)",
+            borderRadius: 16,
+            padding: 32,
+            textAlign: "left",
+            maxWidth: 480,
+            margin: "0 auto 40px",
+          }}
+        >
+          <p style={{ color: "#6b7280", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 20 }}>Founding agency access</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {features.map((f, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <CheckIcon />
+                <span style={{ color: "#d1d5db", fontSize: 14 }}>{f}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="scroll-reveal">
-          <p style={{ color: "#6b7280", fontSize: 14, marginBottom: 16 }}>Ready to get started?</p>
           <a
-            href="https://app.tonifyai.com/auth/signup"
+            href={PRIMARY_CTA_URL}
             className="btn-primary"
             style={{
               display: "inline-block",
@@ -627,8 +577,11 @@ function Pricing() {
               textDecoration: "none",
             }}
           >
-            Request Access →
+            Message us on WhatsApp →
           </a>
+          <p style={{ color: "#6b7280", fontSize: 14, marginTop: 16 }}>
+            Prefer Instagram? DM <a href={INSTAGRAM_DM_URL} style={{ color: "#f59e0b", textDecoration: "none" }}>@{INSTAGRAM_HANDLE}</a>
+          </p>
         </div>
       </div>
     </section>
@@ -666,11 +619,11 @@ function FinalCTA() {
           Your content backlog ends here.
         </h2>
         <p className="scroll-reveal" style={{ color: "#9ca3af", fontSize: 18, marginBottom: 40 }}>
-          Join agencies already using Tonify to reclaim hours every week.
+          Be one of our first agencies. Send one client recording and get a free sample back.
         </p>
         <div className="scroll-reveal">
           <a
-            href="https://app.tonifyai.com/auth/signup"
+            href={PRIMARY_CTA_URL}
             className="btn-primary"
             style={{
               display: "inline-block",
@@ -683,10 +636,10 @@ function FinalCTA() {
               textDecoration: "none",
             }}
           >
-            Request Early Access
+            {PRIMARY_CTA_LABEL}
           </a>
           <p style={{ color: "#4b5563", fontSize: 14, marginTop: 16 }}>
-            Invite-only. Access codes distributed by the Tonify team.
+            Early access · No commitment · We reply on WhatsApp
           </p>
         </div>
       </div>
@@ -715,8 +668,8 @@ function Footer() {
           <span style={{ color: "#4b5563", fontSize: 14 }}>© 2026 Tonify. All rights reserved.</span>
         </div>
         <div style={{ display: "flex", gap: 24 }}>
-          {["Privacy", "Terms", "Contact"].map((link) => (
-            <a key={link} href="#" style={{ color: "#4b5563", fontSize: 14, textDecoration: "none", transition: "color 0.15s" }}
+          {[["Privacy", "/privacy"], ["Terms", "/terms"], ["Contact", "/contact"]].map(([link, href]) => (
+            <a key={link} href={href} style={{ color: "#4b5563", fontSize: 14, textDecoration: "none", transition: "color 0.15s" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#9ca3af")}
               onMouseLeave={e => (e.currentTarget.style.color = "#4b5563")}
             >
@@ -724,18 +677,18 @@ function Footer() {
             </a>
           ))}
         </div>
-        <a href="mailto:hello@tonifyai.com" style={{ color: "rgba(245,158,11,0.6)", fontSize: 14, textDecoration: "none", transition: "color 0.15s" }}
+        <a href={INSTAGRAM_DM_URL} style={{ color: "rgba(245,158,11,0.6)", fontSize: 14, textDecoration: "none", transition: "color 0.15s" }}
           onMouseEnter={e => (e.currentTarget.style.color = "#f59e0b")}
           onMouseLeave={e => (e.currentTarget.style.color = "rgba(245,158,11,0.6)")}
         >
-          hello@tonifyai.com
+          @{INSTAGRAM_HANDLE}
         </a>
       </div>
     </footer>
   );
 }
 
-export default function App() {
+function Home() {
   useScrollReveal();
 
   return (
@@ -748,6 +701,24 @@ export default function App() {
       <ForAgencies />
       <Pricing />
       <FinalCTA />
+      <Footer />
+    </>
+  );
+}
+
+export default function App() {
+  const path = window.location.pathname.replace(/\/+$/, "") || "/";
+  const pages: Record<string, () => JSX.Element> = {
+    "/privacy": PrivacyPage,
+    "/terms": TermsPage,
+    "/contact": ContactPage,
+  };
+  const Page = pages[path];
+  if (!Page) return <Home />;
+  return (
+    <>
+      <Navbar />
+      <Page />
       <Footer />
     </>
   );
