@@ -190,7 +190,7 @@ function Hero() {
             borderRadius: 9999,
             padding: "6px 16px",
           }}>
-            Now in Early Access
+            AI content repurposing for agencies · Early access
           </span>
         </div>
 
@@ -202,8 +202,9 @@ function Hero() {
           lineHeight: 1.05,
           marginBottom: 20,
         }}>
-          Turn Any Audio Into<br />
-          <span style={{ color: "#f59e0b" }}>Agency-Ready</span> Content
+          Client content that<br />
+          <span style={{ color: "#f59e0b" }}>sounds like your client.</span><br />
+          No rewriting.
         </h1>
 
         <p className="hero-content-delay-2" style={{
@@ -213,9 +214,9 @@ function Hero() {
           margin: "0 auto 32px",
           lineHeight: 1.6,
         }}>
-          Upload a podcast, interview, or recording. Tonify delivers LinkedIn posts,
-          Instagram scripts, and newsletters — perfectly matched to each client's brand
-          voice. In minutes.
+          Upload a client podcast, interview or call recording. Tonify turns it into a LinkedIn
+          post, Instagram script and newsletter in that client's brand voice. Take on more
+          clients without hiring more writers.
         </p>
 
         <div className="hero-content-delay-3" style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center", marginBottom: 16 }}>
@@ -274,7 +275,7 @@ function SocialProofBar() {
   }, []);
 
   const stats = [
-    { value: "< 2 min", label: "Content turnaround" },
+    { value: "Minutes, not hours", label: "Recording to drafts" },
     { value: "3 formats", label: "Per upload" },
     { value: "Urdu + English", label: "Recordings supported" },
   ];
@@ -318,7 +319,7 @@ function HowItWorks() {
       num: "01",
       icon: <UploadIcon />,
       title: "Upload Your Media",
-      desc: "Drop any MP3, WAV, or M4A file — podcasts, interviews, webinars, voice notes. Up to 50MB.",
+      desc: "Drop any MP3, WAV, or M4A file — podcasts, client calls, interviews, webinars, voice notes.",
     },
     {
       num: "02",
@@ -449,7 +450,7 @@ function ForAgencies() {
   const bullets = [
     "Multiple client profiles in one dashboard",
     "Brand voice preserved across every output",
-    "Content ready in minutes, not hours",
+    "Drafts in minutes, not hours",
     "Delivery to ClickUp & Slack (coming soon)",
   ];
 
@@ -486,12 +487,12 @@ function ForAgencies() {
             borderRadius: 16,
             padding: 32,
           }}>
-            <p style={{ color: "#6b7280", fontSize: 14, marginBottom: 24 }}>The math is simple</p>
+            <p style={{ color: "#6b7280", fontSize: 14, marginBottom: 24 }}>Where the time goes</p>
 
             <div style={{ marginBottom: 16 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
                 <span style={{ color: "#9ca3af", fontSize: 14 }}>Manual content creation</span>
-                <span style={{ color: "#9ca3af", fontSize: 14 }}>2–4 hours per client</span>
+                <span style={{ color: "#9ca3af", fontSize: 14 }}>Hours per client</span>
               </div>
             </div>
 
@@ -500,12 +501,12 @@ function ForAgencies() {
             <div style={{ marginBottom: 24 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
                 <span style={{ color: "#f3f4f6", fontSize: 14, fontWeight: 500 }}>With Tonify</span>
-                <span style={{ color: "#fbbf24", fontSize: 14, fontWeight: 600 }}>&lt; 5 minutes per client</span>
+                <span style={{ color: "#fbbf24", fontSize: 14, fontWeight: 600 }}>Minutes per client</span>
               </div>
             </div>
 
             <p style={{ color: "#d1d5db", fontSize: 14, lineHeight: 1.6 }}>
-              For agencies with 10+ clients, that's <strong style={{ color: "#f3f4f6" }}>30+ hours saved</strong> every month.
+              Your writers review and polish instead of starting from a blank page, so the same team can <strong style={{ color: "#f3f4f6" }}>handle more clients</strong>.
             </p>
           </div>
         </div>
@@ -521,7 +522,7 @@ function Pricing() {
     "Multiple client profiles in one dashboard",
     "Urdu, English and mixed Urdu-English recordings",
     "Local onboarding and support",
-    "Billing in PKR for Pakistani agencies",
+    "Pakistani agencies can pay in PKR or USD",
     "ClickUp & Slack delivery (coming soon)",
   ];
 
@@ -582,6 +583,80 @@ function Pricing() {
           <p style={{ color: "#6b7280", fontSize: 14, marginTop: 16 }}>
             Prefer Instagram? DM <a href={INSTAGRAM_DM_URL} style={{ color: "#f59e0b", textDecoration: "none" }}>@{INSTAGRAM_HANDLE}</a>
           </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const FAQS: { q: string; a: string }[] = [
+  {
+    q: "What does Tonify do?",
+    a: "Tonify is an AI content repurposing tool for marketing agencies. You upload a client recording, such as a podcast, interview or call, and Tonify turns it into a LinkedIn post, an Instagram script and a newsletter written in that client's brand voice.",
+  },
+  {
+    q: "Will the content actually sound like my client?",
+    a: "Each client gets a brand profile with their tone, style rules and past writing examples. Tonify writes every draft against that profile, so your team edits lightly instead of rewriting. You always review before anything is published.",
+  },
+  {
+    q: "Does Tonify work with Urdu or mixed Urdu-English recordings?",
+    a: "Yes. You can upload recordings in English, Urdu or a natural mix of both, the way most Pakistani clients actually speak.",
+  },
+  {
+    q: "What kind of recordings can I upload?",
+    a: "Podcasts, client calls, interviews, webinars and voice notes in MP3, WAV or M4A format.",
+  },
+  {
+    q: "How is Tonify different from other content repurposing tools?",
+    a: "Tonify is built for agencies managing many client voices, with a brand profile per client. For agencies in Pakistan it also supports Urdu-English recordings, local onboarding and support, and payment in PKR or USD.",
+  },
+  {
+    q: "How much does Tonify cost?",
+    a: "Tonify is in early access and pricing is agreed with each founding agency. Pakistani agencies can pay in PKR or USD. Message us on WhatsApp for a quote.",
+  },
+  {
+    q: "Can I try Tonify before paying?",
+    a: "Yes. Send us one client recording on WhatsApp and we will send back a free sample: a LinkedIn post, an Instagram script and a newsletter. There is no commitment.",
+  },
+  {
+    q: "What happens to my clients' recordings?",
+    a: "We use recordings only to create your content and never sell your data. You can ask us to delete your files at any time. See our Privacy Policy for details.",
+  },
+];
+
+function FAQ() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+
+  return (
+    <section id="faq" style={{ background: "#0a0a0a", padding: "96px 24px", borderTop: "1px solid rgba(245,158,11,0.08)" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <div style={{ maxWidth: 760, margin: "0 auto" }}>
+        <p style={{ color: "#f59e0b", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", textAlign: "center", marginBottom: 16 }}>
+          FAQ
+        </p>
+        <h2 style={{ color: "#fff", fontSize: "clamp(28px,4vw,40px)", fontWeight: 300, textAlign: "center", marginBottom: 48 }}>
+          Questions agencies ask
+        </h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          {FAQS.map(({ q, a }) => (
+            <details
+              key={q}
+              style={{ background: "#000", border: "1px solid rgba(245,158,11,0.12)", borderRadius: 12, padding: "18px 22px" }}
+            >
+              <summary style={{ color: "#f3f4f6", fontSize: 16, fontWeight: 500, cursor: "pointer", listStyle: "none" }}>
+                {q}
+              </summary>
+              <p style={{ color: "#9ca3af", fontSize: 15, lineHeight: 1.7, marginTop: 12 }}>{a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
@@ -700,6 +775,7 @@ function Home() {
       <OutputPreview />
       <ForAgencies />
       <Pricing />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </>
@@ -714,6 +790,16 @@ export default function App() {
     "/contact": ContactPage,
   };
   const Page = pages[path];
+  useEffect(() => {
+    const meta: Record<string, string> = {
+      "/privacy": "Privacy Policy | Tonify",
+      "/terms": "Terms of Use | Tonify",
+      "/contact": "Contact Tonify | Get a Free Sample",
+    };
+    if (Page) document.title = meta[path];
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", `https://www.tonifyai.com${Page ? path : "/"}`);
+  }, [Page, path]);
   if (!Page) return <Home />;
   return (
     <>
